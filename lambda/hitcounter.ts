@@ -1,6 +1,9 @@
-const { DynamoDB, Lambda } = require("aws-sdk");
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
+import { DynamoDB, Lambda } from "aws-sdk";
 
-exports.handler = async function (event) {
+export const handler = async (
+  event: APIGatewayProxyEvent
+): Promise<APIGatewayProxyResult> => {
   console.log("request:", JSON.stringify(event, undefined, 2));
 
   const dynamo = new DynamoDB();
